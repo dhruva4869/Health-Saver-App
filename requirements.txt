@@ -1,0 +1,10 @@
+numpy
+scikit-learn
+streamlit
+streamlit-option-menu
+google-generativeai
+python-dotenv
+PyPDF2
+fpdf
+transformers
+youtube-transcript-api

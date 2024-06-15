@@ -1,0 +1,114 @@
+# Gemini API ->
+Search for it and you have it
+Main functionalities of Model to use: 
+    => start_chat : init
+    => send_message : send and append if needed to history
+    => generate_content : just return
+
+
+
+# Chatbot -> 
+=> Session is stored using streamlit's functionality of session_state
+=> Session is just for that particular time, so no cookies are made. Even though that can also be done. 
+=> streamlit-cookie-manager is one library we can install for the need
+
+
+# Streamlit -> 
+=> Good for building Python based Applications quickly, However is slow.
+=> Has almost everything in-built and can still be customized woth css 
+=> For this we need to use **st.markdown** and **unsafe_allow_html**=True
+=> text_input, button, sidebar, option_menu, st_page_config (init page title)
+=> We get data from .pkl files (pickle)
+
+
+
+# Pickle ->
+=> used for serializing and deserializing Python objects (convert to binary)
+=> pickle.dump() for serializing and pickle.load for deserialization
+=> Easy to do, but not as secure
+=> Alternative : JSON
+=> Why we dont use JSON then like isnt it better? NOOOOOO -> JSON cannot serialize all the Python Objects.
+=> JSON DOESNT serialize datetime objects
+
+
+
+# SVM -> 
+=> Support Vector Machines. (from sklearn import svm)
+=> Split based on outcome (classification) : 
+    X = diabetes_dataset.drop(columns = 'Outcome', axis=1)
+    Y = diabetes_dataset['Outcome']
+=> train_test_split ? (test_size and random_state)
+=> Confusion Matrix, AUC ROC other performance evaluation metrics
+=> General knowledge about working of SVMs
+
+
+
+# Logistic Regression (Classification algorithm) -> 
+=> General knowledge about working of Logistic Regression
+
+
+
+# General Facts:
+
+=> SVM solves the Convex Optimization Problem, which deals with what particular entry should be at which side
+of the hyperplane.
+=> kernel = 'linear' or 'poly' or 'rbf' (radial basis function)
+=> Kernel Trick -> 
+    dont need to compare the point with where it lies, we need the compare the point with other points
+
+=> train_test_split is for cross-validation
+    train_test_split(X,Y, test_size = 0.2, stratify=Y, random_state=2)
+    test_size = 0.2 meaning 20% data for testing
+    random_state = 2 randomly split
+
+=> Cross-validation
+    Avoid overfitting
+    Validate the Model / evaluation
+    Generalization of new data
+    LOOCV leave one out, take rest as testing, do same for all
+
+=> Confusion Matrix
+    -> False Positive (Type 1 error) -> Falsely Positive predict krdiya -> mtlb real mai negative tha but falsely positive predict kiya
+    -> False Negative (Type 2 error) ->  falselt negative predict kiya mtlb real mai positive tha
+    -> True Positive
+    -> True Negative
+
+Trick to learn -> False positive meaning falsely predict kr diya ki positive tha
+or False + positive = negative = actual meaning actually negative tha but predict hua positive
+
+
+
+AUC-ROC curve area should be maximum
+its built in between TP vs FP (x axis)
+Starting mai we need our model to just give positive values, then we want to fine tune it to give better results
+meaning ki model ab harr jagah positive value dega but model ko pta chalega ki kuch kuch to negatve hai
+fir model train karega khud ko and fir baad mai accha model banega. aise mai area badd jayega curve karega
+AUC is area under curve and ROC is receiver operator characteristics which is probablistic
+
+
+
+# Random Forest Classifier and Decision Trees->
+=> Decision tree might have high variance so we use multiple DT's instead of one
+=> but data is still the same, so we need to do random sampling WITH REPLACEMENTS, meaning repetitions allowed
+=> This is known as Bootstrapping
+=> Now train the RandomforestClassifier on each of these Datasets. Why random ? because of random sampling
+=> Now overall variance is less
+=> terms = entropy -> degree of randomness, Information gain -> Change in the entropy
+=> How to predict the model in the Random Forest Classifier? In decision Tree there was only 1 output
+=> DO the majority voting (Aggregation)
+=> Bootstrapping + aggregation = Bagging process
+
+
+
+# PyPDF2 and FPDF WITH transformers (T5Tokenizer anmd T5ForConditionalGeneration):
+=> PyPDF2 is simply a PDF reader to extract the text from the PDF
+=> FPDF is used to create a pdf file from a text given.
+
+Workflow =>
+
+text_input -> PyPDF2 extracts the text -> T5Tokenizer for encoding -> T5ForConditionalGeneration for summarizing
+-> T5Tokenizer again but now for decoding -> FPDF for converting the summarized text into PDF -> streamlit as download option
+
+
+Transcript generator using youtube-transcript-api. Summarizing done again with T5ForConditionalGeneration
+

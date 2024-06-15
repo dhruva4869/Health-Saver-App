@@ -1,0 +1,13 @@
+google-generativeai (gemini api) -> chatbot with history of current session
+streamlit
+pickle
+PyPDF2
+FPDF
+transformers like T5Tokenizer and T5ForConditionalGeneration 
+youtube-transcript-api
+
+Classification algorithms used are ->
+    SVM
+    Logistic regression
+    Decision Tree
+    Random Forest Classification only
