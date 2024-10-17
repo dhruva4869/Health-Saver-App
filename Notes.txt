@@ -112,3 +112,6 @@ text_input -> PyPDF2 extracts the text -> T5Tokenizer for encoding -> T5ForCondi
 
 Transcript generator using youtube-transcript-api. Summarizing done again with T5ForConditionalGeneration
 
+How can we finetune this T5Tokenizer? -> Well we don't need to since it is pre-trained.
+But if we wish to, we can use T5Config to increase the vocabulary of the scenario we have.
+
