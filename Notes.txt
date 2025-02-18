@@ -6,7 +6,6 @@ Main functionalities of Model to use:
     => generate_content : just return
 
 
-
 # Chatbot -> 
 => Session is stored using streamlit's functionality of session_state
 => Session is just for that particular time, so no cookies are made. Even though that can also be done. 
